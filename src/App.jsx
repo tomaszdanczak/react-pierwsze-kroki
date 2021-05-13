@@ -26,7 +26,9 @@ class App extends Component {
   };
 
   handleSaveEvent = () => {
-    console.log("Save");
+    this.setState((prevState) => ({
+      events: [...prevState.events, prevState.editedEvent],
+    }));
   };
 
   render() {
