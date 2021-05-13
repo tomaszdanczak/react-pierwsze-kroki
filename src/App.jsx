@@ -11,10 +11,18 @@ class App extends Component {
       { id: 1, name: "obiad", time: "15:00" },
       { id: 2, name: "kolacja", time: "19:00" },
     ],
+    editedEvent: {
+      id: 4,
+      name: "",
+      hour: "",
+      minute: "",
+    },
   };
 
   handleEditEvent = (val) => {
-    console.log(val);
+    this.setState((prevState) => ({
+      editedEvent: { ...prevState.editedEvent, ...val },
+    }));
   };
 
   render() {
