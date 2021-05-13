@@ -2,10 +2,10 @@ import React from "react";
 
 import "./Countdown.css";
 
-const Countdown = (props) => {
+const Countdown = ({ name, hour, minute }) => {
   return (
     <div className="countdown">
-      <strong>{props.name}</strong> - {props.time}
+      <strong>{name}</strong> - {hour}:{minute}
     </div>
   );
 };
