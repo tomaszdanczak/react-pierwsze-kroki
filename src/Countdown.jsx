@@ -1,9 +1,9 @@
 import React from "react";
 
-const Countdown = () => {
+const Countdown = (props) => {
   return (
     <div className="countdown">
-      <strong>śniadanie</strong> - 07:00
+      <strong>{props.name}</strong> - {props.time}
     </div>
   );
 };
