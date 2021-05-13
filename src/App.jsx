@@ -1,7 +1,13 @@
 import React from "react";
+import Countdown from "./Countdown";
 
 const App = () => {
-  return <h1>Hello</h1>;
+  return (
+    <div>
+      <Countdown />
+      <Countdown />
+    </div>
+  );
 };
 
 export default App;
