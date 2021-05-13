@@ -25,6 +25,10 @@ class App extends Component {
     }));
   };
 
+  handleSaveEvent = () => {
+    console.log("Save");
+  };
+
   render() {
     const events = this.state.events.map((event) => (
       <Countdown
@@ -38,7 +42,10 @@ class App extends Component {
     return (
       <div className="app">
         {events}
-        <EditEvent onInputChange={(val) => this.handleEditEvent(val)} />
+        <EditEvent
+          onInputChange={(val) => this.handleEditEvent(val)}
+          onSave={this.handleSaveEvent}
+        />
       </div>
     );
   }

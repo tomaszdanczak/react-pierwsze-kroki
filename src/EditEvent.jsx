@@ -2,7 +2,7 @@ import React from "react";
 
 import "./EditEvent.css";
 
-const EditEvent = ({ onInputChange }) => {
+const EditEvent = ({ onInputChange, onSave }) => {
   return (
     <div className="edit-event">
       <div className="edit-event__input-group">
@@ -38,7 +38,7 @@ const EditEvent = ({ onInputChange }) => {
           }}
         />
       </div>
-      <button>OK</button>
+      <button onClick={onSave}>OK</button>
       <button>Cancel</button>
     </div>
   );
