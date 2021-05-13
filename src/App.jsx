@@ -38,6 +38,10 @@ class App extends Component {
     }));
   };
 
+  handleRemoveEvent = (id) => {
+    console.log(id);
+  };
+
   render() {
     const events = this.state.events.map((event) => (
       <Countdown
@@ -45,6 +49,8 @@ class App extends Component {
         hour={event.hour}
         minute={event.minute}
         key={event.id}
+        id={event.id}
+        onRemove={(id) => this.handleRemoveEvent(id)}
       />
     ));
 
