@@ -2,13 +2,20 @@ import React, { Component } from "react";
 import Countdown from "./Countdown";
 
 class App extends Component {
+  state = {
+    events: [
+      { id: 0, name: "śniadanie", time: "07:00" },
+      { id: 1, name: "obiad", time: "15:00" },
+      { id: 2, name: "kolacja", time: "19:00" },
+    ],
+  };
+
   render() {
-    return (
-      <div>
-        <Countdown name="śniadanie" time="07:00" />
-        <Countdown name="obiad" time="15:00" />
-      </div>
-    );
+    const events = this.state.events.map((event) => (
+      <Countdown name={event.name} time={event.time} key={event.id} />
+    ));
+
+    return <div>{events}</div>;
   }
 }
 
