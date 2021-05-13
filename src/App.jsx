@@ -39,7 +39,9 @@ class App extends Component {
   };
 
   handleRemoveEvent = (id) => {
-    console.log(id);
+    this.setState((prevState) => ({
+      events: prevState.events.filter((event) => event.id !== id),
+    }));
   };
 
   render() {
