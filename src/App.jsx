@@ -7,9 +7,9 @@ import "./App.css";
 class App extends Component {
   state = {
     events: [
-      { id: 0, name: "śniadanie", time: "07:00" },
-      { id: 1, name: "obiad", time: "15:00" },
-      { id: 2, name: "kolacja", time: "19:00" },
+      { id: 0, name: "śniadanie", hour: "07", minute: "00" },
+      { id: 1, name: "obiad", hour: "15", minute: "00" },
+      { id: 2, name: "kolacja", hour: "19", minute: "00" },
     ],
     editedEvent: {
       id: 4,
@@ -27,7 +27,12 @@ class App extends Component {
 
   render() {
     const events = this.state.events.map((event) => (
-      <Countdown name={event.name} time={event.time} key={event.id} />
+      <Countdown
+        name={event.name}
+        hour={event.hour}
+        minute={event.minute}
+        key={event.id}
+      />
     ));
 
     return (

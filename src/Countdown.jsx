@@ -5,7 +5,7 @@ import "./Countdown.css";
 const Countdown = (props) => {
   return (
     <div className="countdown">
-      <strong>{props.name}</strong> - {props.time}
+      <strong>{props.name}</strong> - {props.hour}:{props.minute}
     </div>
   );
 };
