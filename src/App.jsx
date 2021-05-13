@@ -38,6 +38,12 @@ class App extends Component {
     }));
   };
 
+  handleRemoveEvent = (id) => {
+    this.setState((prevState) => ({
+      events: prevState.events.filter((event) => event.id !== id),
+    }));
+  };
+
   render() {
     const events = this.state.events.map((event) => (
       <Countdown
@@ -45,6 +51,8 @@ class App extends Component {
         hour={event.hour}
         minute={event.minute}
         key={event.id}
+        id={event.id}
+        onRemove={(id) => this.handleRemoveEvent(id)}
       />
     ));
 
