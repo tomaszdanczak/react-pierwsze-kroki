@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Countdown from "./Countdown";
 
+import "./App.css";
+
 class App extends Component {
   state = {
     events: [
@@ -15,7 +17,7 @@ class App extends Component {
       <Countdown name={event.name} time={event.time} key={event.id} />
     ));
 
-    return <div>{events}</div>;
+    return <div className="app">{events}</div>;
   }
 }
 
