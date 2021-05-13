@@ -2,7 +2,7 @@ import React from "react";
 
 import "./EditEvent.css";
 
-const EditEvent = ({ onInputChange, onSave }) => {
+const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
   return (
     <div className="edit-event">
       <div className="edit-event__input-group">
@@ -11,6 +11,7 @@ const EditEvent = ({ onInputChange, onSave }) => {
           type="text"
           id="name"
           name="name"
+          value={name}
           onChange={(e) => {
             onInputChange({ [e.target.name]: e.target.value });
           }}
@@ -22,6 +23,7 @@ const EditEvent = ({ onInputChange, onSave }) => {
           type="tel"
           id="hour"
           name="hour"
+          value={hour}
           onChange={(e) => {
             onInputChange({ [e.target.name]: e.target.value });
           }}
@@ -33,6 +35,7 @@ const EditEvent = ({ onInputChange, onSave }) => {
           type="tel"
           id="minute"
           name="minute"
+          value={minute}
           onChange={(e) => {
             onInputChange({ [e.target.name]: e.target.value });
           }}
