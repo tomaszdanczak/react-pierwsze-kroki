@@ -13,6 +13,10 @@ class App extends Component {
     ],
   };
 
+  handleEditEvent = (val) => {
+    console.log(val);
+  };
+
   render() {
     const events = this.state.events.map((event) => (
       <Countdown name={event.name} time={event.time} key={event.id} />
@@ -21,7 +25,7 @@ class App extends Component {
     return (
       <div className="app">
         {events}
-        <EditEvent />
+        <EditEvent onInputChange={(val) => this.handleEditEvent(val)} />
       </div>
     );
   }
