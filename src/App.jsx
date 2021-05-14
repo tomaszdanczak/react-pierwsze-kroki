@@ -18,6 +18,11 @@ class App extends Component {
       hour: -1,
       minute: -1,
     },
+    now: {
+      hour: new Date().getHours(),
+      minute: new Date().getMinutes(),
+      seconds: new Date().getSeconds(),
+    },
   };
 
   handleEditEvent = (val) => {
@@ -85,6 +90,7 @@ class App extends Component {
         name={event.name}
         hour={event.hour}
         minute={event.minute}
+        timeNow={this.state.now}
         key={event.id}
         id={event.id}
         onRemove={(id) => this.handleRemoveEvent(id)}
