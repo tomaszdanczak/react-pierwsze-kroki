@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Overlay from "./Overlay";
 import { hourMinuteToSeconds, secondsToHourMinuteSecond } from "./utils";
 
@@ -38,6 +39,19 @@ const Countdown = ({
       </Overlay>
     </div>
   );
+};
+
+Countdown.propTypes = {
+  name: PropTypes.string,
+  hour: PropTypes.number,
+  minute: PropTypes.number,
+  onEditInit: PropTypes.func,
+  onRemove: PropTypes.func,
+  timeNow: PropTypes.shape({
+    hour: PropTypes.number,
+    minute: PropTypes.number,
+    seconds: PropTypes.number,
+  }),
 };
 
 export default Countdown;
