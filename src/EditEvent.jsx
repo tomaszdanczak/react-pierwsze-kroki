@@ -13,6 +13,8 @@ const EditEvent = ({ onInputChange, onSave, onCancel, name, hour, minute }) => {
   const isFormValid =
     isValidName(name) && isValidHour(hour) && isValidMinute(minute);
 
+  const isFormEmpty = name === "" && hour === -1 && minute === -1;
+
   return (
     <div className="edit-event">
       <div className="edit-event__input-group">
@@ -60,7 +62,9 @@ const EditEvent = ({ onInputChange, onSave, onCancel, name, hour, minute }) => {
       <button disabled={!isFormValid} onClick={onSave}>
         OK
       </button>
-      <button onClick={onCancel}>Cancel</button>
+      <button disabled={isFormEmpty} onClick={onCancel}>
+        Cancel
+      </button>
     </div>
   );
 };
