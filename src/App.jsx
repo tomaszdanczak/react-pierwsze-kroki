@@ -8,15 +8,15 @@ import "./App.css";
 class App extends Component {
   state = {
     events: [
-      { id: 0, name: "śniadanie", hour: "07", minute: "00" },
-      { id: 1, name: "obiad", hour: "15", minute: "00" },
-      { id: 2, name: "kolacja", hour: "19", minute: "00" },
+      { id: 0, name: "śniadanie", hour: 7, minute: 0 },
+      { id: 1, name: "obiad", hour: 15, minute: 0 },
+      { id: 2, name: "kolacja", hour: 19, minute: 0 },
     ],
     editedEvent: {
       id: uniqid(),
       name: "",
-      hour: "",
-      minute: "",
+      hour: -1,
+      minute: -1,
     },
   };
 
@@ -49,8 +49,8 @@ class App extends Component {
         editedEvent: {
           id: uniqid(),
           name: "",
-          hour: "",
-          minute: "",
+          hour: -1,
+          minute: -1,
         },
       };
     });
@@ -66,6 +66,17 @@ class App extends Component {
     this.setState((prevState) => ({
       editedEvent: prevState.events.find((event) => event.id === id),
     }));
+  };
+
+  handleEditCancel = () => {
+    this.setState({
+      editedEvent: {
+        id: uniqid(),
+        name: "",
+        hour: -1,
+        minute: -1,
+      },
+    });
   };
 
   render() {
@@ -92,6 +103,7 @@ class App extends Component {
           minute={minute}
           onInputChange={(val) => this.handleEditEvent(val)}
           onSave={this.handleSaveEvent}
+          onCancel={this.handleEditCancel}
         />
       </div>
     );
