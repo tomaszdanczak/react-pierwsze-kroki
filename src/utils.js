@@ -22,3 +22,7 @@ export const isValidMinute = (val) => {
   if (val >= 0 && val <= 59) return true;
   return false;
 };
+
+export const hourMinuteToSeconds = (h, m) => {
+  return h * 3600 + m * 60;
+};
