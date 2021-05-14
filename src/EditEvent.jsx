@@ -9,7 +9,7 @@ import {
 
 import "./EditEvent.css";
 
-const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
+const EditEvent = ({ onInputChange, onSave, onCancel, name, hour, minute }) => {
   const isFormValid =
     isValidName(name) && isValidHour(hour) && isValidMinute(minute);
 
@@ -60,7 +60,7 @@ const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
       <button disabled={!isFormValid} onClick={onSave}>
         OK
       </button>
-      <button>Cancel</button>
+      <button onClick={onCancel}>Cancel</button>
     </div>
   );
 };

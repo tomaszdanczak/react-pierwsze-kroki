@@ -68,6 +68,10 @@ class App extends Component {
     }));
   };
 
+  handleEditCancel = () => {
+    console.log("Cancel");
+  };
+
   render() {
     const events = this.state.events.map((event) => (
       <Countdown
@@ -92,6 +96,7 @@ class App extends Component {
           minute={minute}
           onInputChange={(val) => this.handleEditEvent(val)}
           onSave={this.handleSaveEvent}
+          onCancel={this.handleEditCancel}
         />
       </div>
     );
