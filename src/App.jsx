@@ -45,7 +45,9 @@ class App extends Component {
   };
 
   handleEditInit = (id) => {
-    console.log("Init edit:", id);
+    this.setState((prevState) => ({
+      editedEvent: prevState.events.find((event) => event.id === id),
+    }));
   };
 
   render() {
