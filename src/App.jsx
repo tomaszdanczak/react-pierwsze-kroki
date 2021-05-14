@@ -44,6 +44,10 @@ class App extends Component {
     }));
   };
 
+  handleEditInit = (id) => {
+    console.log("Init edit:", id);
+  };
+
   render() {
     const events = this.state.events.map((event) => (
       <Countdown
@@ -53,6 +57,7 @@ class App extends Component {
         key={event.id}
         id={event.id}
         onRemove={(id) => this.handleRemoveEvent(id)}
+        onEditInit={(id) => this.handleEditInit(id)}
       />
     ));
 
