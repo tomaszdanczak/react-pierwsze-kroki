@@ -1,9 +1,18 @@
 import React from "react";
-import { isValidNumberInput, parseInputAsNumber } from "./utils";
+import {
+  isValidNumberInput,
+  parseInputAsNumber,
+  isValidName,
+  isValidHour,
+  isValidMinute,
+} from "./utils";
 
 import "./EditEvent.css";
 
 const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
+  const isFormValid =
+    isValidName(name) && isValidHour(hour) && isValidMinute(minute);
+
   return (
     <div className="edit-event">
       <div className="edit-event__input-group">
@@ -48,7 +57,9 @@ const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
           }}
         />
       </div>
-      <button onClick={onSave}>OK</button>
+      <button disabled={!isFormValid} onClick={onSave}>
+        OK
+      </button>
       <button>Cancel</button>
     </div>
   );
