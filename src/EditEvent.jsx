@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import {
   isValidNumberInput,
   parseInputAsNumber,
@@ -67,6 +68,15 @@ const EditEvent = ({ onInputChange, onSave, onCancel, name, hour, minute }) => {
       </button>
     </div>
   );
+};
+
+EditEvent.PropType = {
+  name: PropTypes.string,
+  hour: PropTypes.number,
+  minute: PropTypes.number,
+  onInputChange: PropTypes.func,
+  onSave: PropTypes.func,
+  onCancel: PropTypes.func,
 };
 
 export default EditEvent;
