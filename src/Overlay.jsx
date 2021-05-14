@@ -7,11 +7,22 @@ class Overlay extends Component {
     visible: false,
   };
 
+  toogleVisible = () => {
+    this.setState((prevState) => ({
+      visible: !prevState.visible,
+    }));
+  };
+
   render() {
+    const overlayClass = this.state.visible
+      ? "overlay__modal"
+      : "overlay__modal overlay__modal--visible";
+
     return (
       <div className="overlay">
-        <span>info</span>
-        <div className="overlay__modal">
+        <span onClick={this.toogleVisible}>info</span>
+        <div className={overlayClass}>
+          <span onClick={this.toogleVisible}>close</span>
           <h1>title</h1>
           <p>text</p>
         </div>
