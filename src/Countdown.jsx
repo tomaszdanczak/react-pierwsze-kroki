@@ -30,7 +30,12 @@ const Countdown = ({
         <i className="icon edit" onClick={() => onEditInit(id)}></i>
         <i className="icon times" onClick={() => onRemove(id)}></i>
       </div>
-      <Overlay />
+      <Overlay>
+        <h1>{name}</h1>
+        <p>
+          {hour.toString().padStart(2, 0)}:{minute.toString().padStart(2, 0)}
+        </p>
+      </Overlay>
     </div>
   );
 };
