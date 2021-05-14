@@ -105,6 +105,9 @@ class App extends Component {
   };
 
   componentDidMount() {
+    const storageEvents = JSON.parse(localStorage.getItem("events")) || [];
+    this.setState({ events: storageEvents });
+
     const intervalId = setInterval(this.timer, 1000);
     this.setState({ intervalId });
   }
