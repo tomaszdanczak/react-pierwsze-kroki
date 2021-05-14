@@ -4,6 +4,7 @@ export const isValidNumberInput = (e) => {
 
 export const parseInputAsNumber = (val) => {
   if (val === "") return -1;
+  if (isNaN(parseInt(val))) return -1;
   return parseInt(val);
 };
 
