@@ -32,39 +32,49 @@ class App extends Component {
   };
 
   handleSaveEvent = () => {
-    this.setState((prevState) => {
-      const editedEventExist = prevState.events.find(
-        (event) => event.id === prevState.editedEvent.id
-      );
+    this.setState(
+      (prevState) => {
+        const editedEventExist = prevState.events.find(
+          (event) => event.id === prevState.editedEvent.id
+        );
 
-      let updatedEvents;
-      if (editedEventExist) {
-        updatedEvents = prevState.events.map((event) => {
-          if (event.id === prevState.editedEvent.id) {
-            return prevState.editedEvent;
-          }
-          return event;
-        });
-      } else {
-        updatedEvents = [...prevState.events, prevState.editedEvent];
+        let updatedEvents;
+        if (editedEventExist) {
+          updatedEvents = prevState.events.map((event) => {
+            if (event.id === prevState.editedEvent.id) {
+              return prevState.editedEvent;
+            }
+            return event;
+          });
+        } else {
+          updatedEvents = [...prevState.events, prevState.editedEvent];
+        }
+
+        return {
+          events: updatedEvents,
+          editedEvent: {
+            id: uniqid(),
+            name: "",
+            hour: -1,
+            minute: -1,
+          },
+        };
+      },
+      () => {
+        localStorage.setItem("events", JSON.stringify(this.state.events));
       }
-
-      return {
-        events: updatedEvents,
-        editedEvent: {
-          id: uniqid(),
-          name: "",
-          hour: -1,
-          minute: -1,
-        },
-      };
-    });
+    );
   };
 
   handleRemoveEvent = (id) => {
-    this.setState((prevState) => ({
-      events: prevState.events.filter((event) => event.id !== id),
-    }));
+    this.setState(
+      (prevState) => ({
+        events: prevState.events.filter((event) => event.id !== id),
+      }),
+      () => {
+        localStorage.setItem("events", JSON.stringify(this.state.events));
+      }
+    );
   };
 
   handleEditInit = (id) => {
