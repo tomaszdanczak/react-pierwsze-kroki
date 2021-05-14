@@ -24,7 +24,7 @@ const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
           type="tel"
           id="hour"
           name="hour"
-          value={hour}
+          value={hour === -1 ? "" : hour}
           onKeyPress={(e) => isValidNumberInput(e)}
           onChange={(e) => {
             onInputChange({ [e.target.name]: e.target.value });
@@ -37,7 +37,7 @@ const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
           type="tel"
           id="minute"
           name="minute"
-          value={minute}
+          value={minute === -1 ? "" : minute}
           onKeyPress={(e) => isValidNumberInput(e)}
           onChange={(e) => {
             onInputChange({ [e.target.name]: e.target.value });
