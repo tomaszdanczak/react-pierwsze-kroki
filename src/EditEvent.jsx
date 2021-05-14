@@ -1,5 +1,5 @@
 import React from "react";
-import { isValidNumberInput } from "./utils";
+import { isValidNumberInput, parseInputAsNumber } from "./utils";
 
 import "./EditEvent.css";
 
@@ -27,7 +27,9 @@ const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
           value={hour === -1 ? "" : hour}
           onKeyPress={(e) => isValidNumberInput(e)}
           onChange={(e) => {
-            onInputChange({ [e.target.name]: e.target.value });
+            onInputChange({
+              [e.target.name]: parseInputAsNumber(e.target.value),
+            });
           }}
         />
       </div>
@@ -40,7 +42,9 @@ const EditEvent = ({ onInputChange, onSave, name, hour, minute }) => {
           value={minute === -1 ? "" : minute}
           onKeyPress={(e) => isValidNumberInput(e)}
           onChange={(e) => {
-            onInputChange({ [e.target.name]: e.target.value });
+            onInputChange({
+              [e.target.name]: parseInputAsNumber(e.target.value),
+            });
           }}
         />
       </div>
