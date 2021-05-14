@@ -18,6 +18,11 @@ class App extends Component {
       hour: -1,
       minute: -1,
     },
+    now: {
+      hour: new Date().getHours(),
+      minute: new Date().getMinutes(),
+      seconds: new Date().getSeconds(),
+    },
   };
 
   handleEditEvent = (val) => {
@@ -79,12 +84,31 @@ class App extends Component {
     });
   };
 
+  timer = () => {
+    this.setState({
+      now: {
+        hour: new Date().getHours(),
+        minute: new Date().getMinutes(),
+        seconds: new Date().getSeconds(),
+      },
+    });
+  };
+
+  componentDidMount() {
+    const intervalId = setInterval(this.timer, 1000);
+    this.setState({ intervalId });
+  }
+  componentWillUnmount() {
+    clearInterval(this.state.intervalId);
+  }
+
   render() {
     const events = this.state.events.map((event) => (
       <Countdown
         name={event.name}
         hour={event.hour}
         minute={event.minute}
+        timeNow={this.state.now}
         key={event.id}
         id={event.id}
         onRemove={(id) => this.handleRemoveEvent(id)}
