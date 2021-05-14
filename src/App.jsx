@@ -69,7 +69,14 @@ class App extends Component {
   };
 
   handleEditCancel = () => {
-    console.log("Cancel");
+    this.setState({
+      editedEvent: {
+        id: uniqid(),
+        name: "",
+        hour: -1,
+        minute: -1,
+      },
+    });
   };
 
   render() {
