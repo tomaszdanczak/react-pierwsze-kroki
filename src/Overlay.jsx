@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./Overlay.css";
+
 class Overlay extends Component {
   state = {
     visible: false,
@@ -7,8 +9,12 @@ class Overlay extends Component {
 
   render() {
     return (
-      <div>
+      <div className="overlay">
         <span>info</span>
+        <div className="overlay__modal">
+          <h1>title</h1>
+          <p>text</p>
+        </div>
       </div>
     );
   }
