@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# 🌱 This is my work with [React. Pierwsze kroki](https://helion.pl/ksiazki/react-pierwsze-kroki-kurs-video-tworzenie-praktycznej-aplikacji-jakub-cioslowski,reactk.htm#format/w) by Jakub Cisłowski
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![App](gh/app.gif)  
 
-## Available Scripts
 
-In the project directory, you can run:
+See [Live 🚀](https://tomaszdanczak.github.io/react-pierwsze-kroki/)   
 
-### `npm start`
+There is [original repository](https://github.com/jakub-c/videopoint-react-pierwsze-kroki) with code from the course.  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 1. Thinks I learned
+- 🌱 How to keep state of form in React Component
+- 🌱 How to create controlled components
+- 🌱 How to validate forms
+- 🌱 How to read state from localStorage and save it there
+- 🌱 How to implement counting in components
+## 2. Things I did myself
+### 2.1 I built clear Git history
+![gitk](gh/gitk.png)  
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 2.2 I introduced props destructuring in stateless functional components to simplify using props values
+```js
+const EditEvent = ({onInputChange}) => {
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+}
+```
+### 2.3 I implemented destructuring of state in statefull class components
+```js
+class App extends Component {
+  state = {
+    editedEvent: {
+      id: uniqid(),
+      name: "",
+      hour: -1,
+      minute: -1,
+    },
+  }
+  render() {
+    const { name, hour, minute } = this.state.editedEvent;
+   
+    return ()
+  }
+}
+```
+### 2.4 I implemented arrow functiions instead function declaration 
+So I didn't have to use bind method in constructor. Also I didn't use constructor and used simple state:
+```js
+class App extends Component {
+  state = {
+    
+  }
+  render() {
+    return ()
+  }
+}
+```
+### 2.5 I used spread operator instead Object.assign to merge objects
+```js
+return { editedEvent: { ...prevState.editedEvent, ...val}}
+```
