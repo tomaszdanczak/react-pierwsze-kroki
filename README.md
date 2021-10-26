@@ -7,7 +7,7 @@ See [Live 🚀](https://tomaszdanczak.github.io/react-pierwsze-kroki/)
 
 There is [original repository](https://github.com/jakub-c/videopoint-react-pierwsze-kroki) with code from the course.  
 
-## 1. Thinks I learned
+## 1. Things I learned
 - 🌱 How to keep state of form in React Component
 - 🌱 How to create controlled components
 - 🌱 How to validate forms
